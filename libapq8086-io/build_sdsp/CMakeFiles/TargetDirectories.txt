@@ -1,0 +1,10 @@
+/home/root/build_sdsp/CMakeFiles/install/strip.dir
+/home/root/build_sdsp/CMakeFiles/install/local.dir
+/home/root/build_sdsp/CMakeFiles/install.dir
+/home/root/build_sdsp/CMakeFiles/list_install_components.dir
+/home/root/build_sdsp/CMakeFiles/libio_rpc-load.dir
+/home/root/build_sdsp/CMakeFiles/generate_io_rpc_stubs.dir
+/home/root/build_sdsp/CMakeFiles/io_rpc_skel.dir
+/home/root/build_sdsp/CMakeFiles/io_rpc.dir
+/home/root/build_sdsp/CMakeFiles/edit_cache.dir
+/home/root/build_sdsp/CMakeFiles/rebuild_cache.dir

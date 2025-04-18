@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/root/lib/apps/../include/voxl_io.h
+stdint.h
+-
+
+/home/root/lib/apps/voxl-spi.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+voxl_io.h
+-
+

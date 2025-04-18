@@ -1,0 +1,7 @@
+{
+  "package_name": "mocap4r2_control_msgs",
+  "non_idl_tuples": [
+    "/ws/src/mocap4r2/mocap4r2_control/mocap4r2_control_msgs:msg/Control.msg",
+    "/ws/src/mocap4r2/mocap4r2_control/mocap4r2_control_msgs:msg/MocapInfo.msg"
+  ]
+}

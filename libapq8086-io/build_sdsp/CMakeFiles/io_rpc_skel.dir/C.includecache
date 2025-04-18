@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/root/build_sdsp/io_rpc.h
+AEEStdDef.h
+/home/root/build_sdsp/AEEStdDef.h
+
+/home/root/build_sdsp/io_rpc_skel.c
+io_rpc.h
+/home/root/build_sdsp/io_rpc.h
+stdio.h
+-
+AEEStdErr.h
+/home/root/build_sdsp/AEEStdErr.h
+remote.h
+/home/root/build_sdsp/remote.h
+stdlib.h
+-
+stdint.h
+-
+stdint.h
+-
+remote.h
+/home/root/build_sdsp/remote.h
+stdint.h
+-
+
+/opt/Qualcomm/Hexagon_SDK/3.1/incs/stddef/AEEStdDef.h
+stdint.h
+-
+
+/opt/Qualcomm/Hexagon_SDK/3.1/incs/stddef/AEEStdErr.h
+
+/opt/Qualcomm/Hexagon_SDK/3.1/libs/common/remote/ship/hexagon_Debug/remote.h
+stdint.h
+-
+sys/types.h
+-
+

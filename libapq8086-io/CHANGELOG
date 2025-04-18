@@ -1,0 +1,62 @@
+0.6.1
+    * fix apm v2 current parsing to support negative currents
+0.6.0
+    * new function for reading flir leptop 3 on SLPI
+    * new functions for SPI chip select
+0.5.8
+    * update CI
+0.5.7
+    * update template
+0.5.6
+    * mavlink parser fix uninitialized memory
+    * fix uart loopback test
+0.5.5
+    * use voxl-mavlink instead of submodule now
+0.5.4
+    * i2c python improvements
+0.5.3
+    * implement UART baud rate setting using DSPaL in order to support
+      more baud rates, such as 250K
+0.5.2
+    * fix bug when mavlink messages are too slow
+    * improve printouts in voxl-test-mavparser
+0.5.1
+    * return status flag with every message parsed
+0.5.0
+    * add flags argument to voxl_mavparser_init
+    * currently only one flag: allow crc failures
+0.4.1
+    * add voxl_spi_xfer function
+    * first release to opkg repo
+0.4.0
+    * add I2C functions
+    * add dsp-accelerated mavlink parsing
+0.3.1
+    * improve robustness of SPI fifo reads when fifo_count has bit flips
+    * allow slower read of fifo_count vs the fifo data
+0.3.0
+    * new GPIO read/write support
+0.2.4
+    * add timeout to SPI fifo read to prevent lockup
+0.2.2
+    * Add support for SPI
+    * new function to calc diff between apps and DSP time
+0.0.8
+    * remove unused args from voxl_uart_init
+    * fix bad return value from uart_read
+    * remove unused declaration voxl_uart_bytes_available()
+    * add postinst script
+0.0.5
+    * fix read bug
+    * add functions for allocating rpc shared memory
+0.0.4
+    * add functions to get dsp time
+0.0.3
+    * add voxl_uart_drain()
+    * remove read timeout since it doesn't seem to work in sdsp
+0.0.2
+    * cleanup cmake and build script.
+    * remove requirement for using standard uart baudrates
+    * migrate to hexagon 3.1 and voxl-docker for building
+0.0.1
+    * Initial build, only supports UART for now

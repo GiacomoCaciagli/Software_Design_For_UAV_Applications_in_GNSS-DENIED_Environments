@@ -1,0 +1,17 @@
+/ws/install/director/lib/director/director_node
+/ws/install/director/lib/director/coordinate_publisher
+/ws/install/director/share/ament_index/resource_index/package_run_dependencies/director
+/ws/install/director/share/ament_index/resource_index/parent_prefix_path/director
+/ws/install/director/share/director/environment/ament_prefix_path.sh
+/ws/install/director/share/director/environment/ament_prefix_path.dsv
+/ws/install/director/share/director/environment/path.sh
+/ws/install/director/share/director/environment/path.dsv
+/ws/install/director/share/director/local_setup.bash
+/ws/install/director/share/director/local_setup.sh
+/ws/install/director/share/director/local_setup.zsh
+/ws/install/director/share/director/local_setup.dsv
+/ws/install/director/share/director/package.dsv
+/ws/install/director/share/ament_index/resource_index/packages/director
+/ws/install/director/share/director/cmake/directorConfig.cmake
+/ws/install/director/share/director/cmake/directorConfig-version.cmake
+/ws/install/director/share/director/package.xml

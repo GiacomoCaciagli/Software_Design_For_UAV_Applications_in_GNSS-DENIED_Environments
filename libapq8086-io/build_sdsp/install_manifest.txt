@@ -1,0 +1,2 @@
+/usr/lib/rfsa/adsp/libio_rpc.so
+/usr/lib/rfsa/adsp/libio_rpc_skel.so

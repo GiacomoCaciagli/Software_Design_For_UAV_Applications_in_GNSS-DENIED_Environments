@@ -1,0 +1,14 @@
+/usr/lib/libvoxl_io.so
+/usr/include/voxl_io.h
+/usr/bin/voxl-uart-loopback
+/usr/bin/voxl-test-time
+/usr/bin/voxl-gpio-loopback
+/usr/bin/voxl-gpio
+/usr/bin/voxl-i2c
+/usr/bin/voxl-spi
+/usr/bin/voxl-test-mavparser
+/usr/bin/voxl-open-uart
+/usr/bin/voxl-close-uart
+/usr/bin/voxl-read-uart
+/usr/bin/voxl-write-uart
+/usr/bin/voxl-parser

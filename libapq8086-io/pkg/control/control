@@ -1,0 +1,10 @@
+Package: libapq8096-io
+Version: 0.6.1
+Section: base
+Priority: optional
+Architecture: arm64
+Provides: libvoxl-io
+Conflicts libvoxl-io
+Depends:
+Maintainer: James Strawson <james@modalai.com>
+Description: ModalAI library allowing apps processor access to accessory serial ports

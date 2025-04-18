@@ -1,0 +1,10 @@
+{
+  "package_name": "mocap4r2_msgs",
+  "non_idl_tuples": [
+    "/ws/src/mocap4r2_msgs:msg/Marker.msg",
+    "/ws/src/mocap4r2_msgs:msg/Markers.msg",
+    "/ws/src/mocap4r2_msgs:msg/ImusInfo.msg",
+    "/ws/src/mocap4r2_msgs:msg/RigidBody.msg",
+    "/ws/src/mocap4r2_msgs:msg/RigidBodies.msg"
+  ]
+}

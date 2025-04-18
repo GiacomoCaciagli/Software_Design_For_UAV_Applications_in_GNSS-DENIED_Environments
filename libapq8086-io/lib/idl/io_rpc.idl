@@ -1,0 +1,93 @@
+/*******************************************************************************
+ * Copyright 2019 ModalAI Inc.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * 4. The Software is used solely in conjunction with devices provided by
+ *    ModalAI Inc.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ ******************************************************************************/
+
+#ifndef IO_RPC_IDL
+#define IO_RPC_IDL
+
+#include "AEEStdDef.idl"
+
+interface io_rpc
+{
+    long uart_init(in int32 bus, in int32 baudrate);
+    long uart_set_baud_rate(in int32 bus, in int32 baudrate);
+    long uart_close(in int32 bus);
+    long uart_write(in int32 bus, in sequence<octet> data, rout int32 bytes_written);
+    long uart_read(in int32 bus, rout sequence<octet> data, rout int32 bytes_read);
+    long uart_flush(in int32 bus);
+    long uart_drain(in int32 bus);
+
+
+    long sdsp_time_monotonic_ns(rout int64 t);
+    long sdsp_time_realtime_ns(rout int64 t);
+
+    long spi_init(in int32 bus, in int32 bus_mode, in int32 freq_hz);
+    long spi_set_freq(in int32 bus, in int32 freq_hz);
+    long spi_skip_dummy_bit(in int32 bus, in int32 val);
+    long spi_close(in int32 bus);
+    long spi_write(in int32 bus, in sequence<octet> data);
+    long spi_write_cs(in int32 bus, in sequence<octet> data, in int32 cs_gpio);
+    long spi_transfer(in int32 bus, in sequence<octet> write, rout sequence<octet> read);
+    long spi_transfer_cs(in int32 bus, in sequence<octet> write, rout sequence<octet> read, in int32 cs_gpio);
+    long spi_write_reg_byte(in int32 bus, in uint8 address, in uint8 val);
+    long spi_write_reg_byte_cs(in int32 bus, in uint8 address, in uint8 val, in int32 cs_gpio);
+    long spi_write_reg_word(in int32 bus, in uint8 address, in uint16 val);
+    long spi_write_reg_word_cs(in int32 bus, in uint8 address, in uint16 val, in int32 cs_gpio);
+    long spi_read_reg(in int32 bus, in uint8 address, rout sequence<octet> data);
+    long spi_read_reg_cs(in int32 bus, in uint8 address, rout sequence<octet> data, in int32 cs_gpio);
+    long spi_read_reg_byte(in int32 bus, in uint8 address, rout uint8 data);
+    long spi_read_reg_byte_cs(in int32 bus, in uint8 address, rout uint8 data, in int32 cs_gpio);
+    long spi_read_reg_word(in int32 bus, in uint8 address, rout uint16 data);
+    long spi_read_reg_word_cs(in int32 bus, in uint8 address, rout uint16 data, in int32 cs_gpio);
+
+    long gather_flir_segment(in int32 spi_bus, rout sequence<octet> outdata);
+    long spi_read_imu_fifo(in int32 bus, in uint8 count_address, in uint8 fifo_address, in uint8 packet_size, in int32 min_packets, rout int32 packets_read, rout sequence<octet> data, in int32 count_speed, in int32 data_speed);
+
+    long gpio_init_input(in int32 gpio_pin);
+    long gpio_init_output(in int32 gpio_pin);
+    long gpio_read(in int32 gpio_pin, rout int32 gpio_state);
+    long gpio_write(in int32 gpio_pin, in int32 gpio_state);
+    long gpio_close(in int32 gpio_pin);
+    long gpio_is_initialized(in int32 gpio_pin);
+
+    long i2c_init(in uint32 bus);
+    long i2c_slave_config(in uint32 bus, in uint32 slave_address, in uint32 bit_rate, in uint32 timeout_us);
+    long i2c_write(in uint32 bus, in uint32 register_address, in uint32 register_address_num_bits, in sequence<octet> write_buffer);
+    long i2c_read(in uint32 bus, in uint32 register_address, in uint32 register_address_num_bits, rout sequence<octet> read_buffer);
+    long i2c_close(in uint32 bus);
+
+    long mavparser_init(in int32 bus, in int32 baudrate, in int32 buflen);
+    long mavparser_read(in int32 bus, rout sequence<octet> data, rout int32 msgs_read, rout sequence<octet> status);
+    long mavparser_close(in int32 bus);
+};
+
+#endif /* IO_RPC_IDL */

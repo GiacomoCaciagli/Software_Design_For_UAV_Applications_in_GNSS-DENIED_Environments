@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/root/lib/apps/../include/voxl_io.h
+stdint.h
+-
+
+/home/root/lib/apps/voxl-test-time.c
+stdio.h
+-
+voxl_io.h
+-
+
