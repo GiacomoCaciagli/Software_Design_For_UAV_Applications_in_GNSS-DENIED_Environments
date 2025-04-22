@@ -67,19 +67,19 @@ If you are using the VICON image, this problem can happen in two cases:
 
     1. go into the VOXL with:
 
-        adb shell
+            adb shell
 
-        bash
+            bash
 
-    or
+        or
 
-        ssh root@<VOXL ip>
+            ssh root@<VOXL ip>
 
     (The password is oelinux123)
 
     2. enter the container with:
 
-        docker exec <container_name> -it bash
+            docker exec <container_name> -it bash
 
     3. inside the container run:
 

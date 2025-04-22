@@ -24,7 +24,7 @@ When this command ends, you can stop the container.
 
 ## 2. upload and create the image on the VOXL
 
-For this part of the guide i suppose that the VOXL is already setup, if not follow point 0 of this [guide](https://github.com/GiacomoCaciagli/Software_Design_For_UAV_Applications_in_GNSS-DENIED_Environments/blob/main/libapq8086-io/README.md).
+For this part of the guide i suppose that the VOXL is already setup, if not, follow point 0 of this [guide](https://github.com/GiacomoCaciagli/Software_Design_For_UAV_Applications_in_GNSS-DENIED_Environments/blob/main/libapq8086-io/README.md).
 
 Connect to the VOXL using a cable.
 
