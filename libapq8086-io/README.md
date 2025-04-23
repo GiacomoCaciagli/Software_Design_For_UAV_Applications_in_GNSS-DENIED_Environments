@@ -31,7 +31,7 @@ This guide shows how to setup the VOXL board and upload the parser. The parser i
 
     This resets and activates the services *docker-daemon* and *docker-autorun*.  
 
-4. Activation of the wi-fi connection, it can be done by running this command on the host system (the board have to be connected to the system):
+4. Activation of the wi-fi connection, it can be done by running this command on the host system (the board have to be connected to the system and the antennas must be attached to the board):
 
     ```bash
     adb shell voxl-wifi station <SSID> <Password>
@@ -56,13 +56,13 @@ The library should be already builded but, if you want to modify something and r
 
 4. Run build.sh inside the docker.
 
-        user@57f6e83bba92:~$ ./build.sh
+        ./build.sh
 
 To upload the library with the parser you have to:
 
 1. Generate a deb or ipk package inside the docker.
 
-        user@57f6e83bba92:~$ ./make_package.sh ipk
+        ./make_package.sh ipk
 
 2. You can now push the ipk package to the VOXL and install with opkg however you like. To do this over ADB, you may use the included helper script: deploy_to_voxl.sh. Do this outside of docker as your docker image probably doesn't have usb permissions for ADB.
         
@@ -72,6 +72,49 @@ All these instruction can be found in the original [repository](https://gitlab.c
 
 ## 2. Parser setup
 
-(TODO)
+Go into the VOXL with:
+
+    me@mylaptop:~$ adb shell
+
+    /: bash
+
+or
+
+    me@mylaptop:~$ ssh root@<VOXL ip>
+
+(The password is oelinux123)
+
+go into /etc/systemd/system with:
+
+    cd /etc/systemd/system
+
+create the file voxl-parser.service
+
+    touch voxl-parser.service
+
+open the file
+
+    vi voxl-parser.service
+
+copy this content inside the opened file in the voxl
+
+    [Unit]
+    Description=voxl-parser
+    After=voxl-wait-for-fs.service
+    Requires=voxl-wait-for-fs.service
+    
+    [Service]
+    User=root
+    Type=simple
+    ExecStart=/usr/bin/voxl-parser
+    
+    [Install]
+    WantedBy=multi-user.target
+
+Save and exit (*esc -> :wq*)
+
+To make the service running on boot execute the following command
+
+    systemctl enable voxl-parser
 
 ### The parser setup is complete, the next step is the build and upload of the VOXL container, the instructions can be found [here](https://github.com/GiacomoCaciagli/Software_Design_For_UAV_Applications_in_GNSS-DENIED_Environments/blob/main/voxl_container/README.md) 
