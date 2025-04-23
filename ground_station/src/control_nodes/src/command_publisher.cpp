@@ -19,8 +19,6 @@ CommandPublisher::CommandPublisher() : Node("command_publisher")
   RCLCPP_INFO(this->get_logger(), "Starting");
   command_publisher_ = this->create_publisher<drone_msgs::msg::DroneCommand>("/drone_command", 10);
 
-  myfile.open ("example.txt");
-
   do
   {
     command = "EOF";
@@ -86,10 +84,6 @@ CommandPublisher::CommandPublisher() : Node("command_publisher")
     {
         std::cout << "command not found, insert again" << std::endl;
     }
-
-    myfile << command << "\n";
-    myfile << "aaaa\n";
-    myfile.flush();
 
   }
   while (command != "EOF");

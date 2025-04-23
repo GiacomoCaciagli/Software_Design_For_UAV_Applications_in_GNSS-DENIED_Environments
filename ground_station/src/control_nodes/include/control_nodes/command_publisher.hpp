@@ -25,5 +25,4 @@ class CommandPublisher : public rclcpp::Node
     std::string commands[13] = {"arm","disarm","go","k","kill","land","mission","offboard","start","stop","w","wait","yaw"};
 
     std::string command;
-    std::ofstream myfile;
 };

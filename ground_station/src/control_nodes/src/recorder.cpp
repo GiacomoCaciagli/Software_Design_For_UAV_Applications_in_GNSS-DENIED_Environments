@@ -13,7 +13,7 @@ SimpleBagRecorder::SimpleBagRecorder() : Node("simple_bag_recorder")
   auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
 
   int i = 0;
-  std::string mission_name = "uwb_slow_mission";
+  std::string mission_name = "uwb_fast_mission";
   std::string str_uwb_dir = "bags/input_data_" + mission_name;
   std::string str_vicon_dir = "bags/vicon_data_" + mission_name;
   std::string str_odometry_dir = "bags/output_data_" + mission_name;
