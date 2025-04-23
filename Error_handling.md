@@ -67,30 +67,30 @@ If you are using the VICON image, this problem can happen in two cases:
 
     1. go into the VOXL with:
 
-            adb shell
+               adb shell
 
-            bash
+               bash
 
-        or
+       or
 
-            ssh root@<VOXL ip>
+               ssh root@<VOXL ip>
 
     (The password is oelinux123)
 
     2. enter the container with:
 
-            docker exec <container_name> -it bash
+               docker exec <container_name> -it bash
 
     3. inside the container run:
 
-        (TODO)
+               ros2 lifecycle set /mocap4r2_vicon_driver_node activate
 
-    if the result of the previous command is *Transition successful* you can exit from the container and the VOXL and everything should be fine, if not you can manually start the node inside the container with:
+       if the result of the previous command is *Transition successful* you can exit from the container and the VOXL and everything should be fine, if not you can manually start the node inside the container with:
 
-        (TODO) &
+               ros2 launch mocap4r2_vicon_driver mocap4r2_vicon_driver_launch.py &
 
-    and then, when the command is end, execute again the command:
+        and then, when the command is end, execute again the command:
 
-        (TODO)
+                ros2 lifecycle set /mocap4r2_vicon_driver_node activate
 
     if this doesn't work you have to reboot the system
