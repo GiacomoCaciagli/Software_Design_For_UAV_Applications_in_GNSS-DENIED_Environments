@@ -8,15 +8,15 @@ This guide explains how to build, upload and set the docker image necessary to m
 
 To build the image go, from terminal, into one of the two folders in this folder and execute:
 
-    docker build --linux/arm64 (TODO)
+    docker build --platform linux/arm64 -t <image_name> .
 
 This would take a while, even two hours in worst case. When the image is built, launch it with:
 
-    docker run <image_name>
+    form linux/arm64 --rm --net=host --ipc=host --user devuser --privileged -it <image_name> /entrypoint.sh bash
 
 Now, in another terminal, export the container with:
 
-    docker export <conainer_name> <file_name>.tgz
+    docker export <container_name> <file_name>.tgz
 
 (The container name, if not known, can be found using *tab*).
 
@@ -49,7 +49,7 @@ Once connected to the VOXL go to the folder where you saved the exported contain
 
     docker import <file_name>.tgz <image_name>
 
-This will create the image on the VOXL
+This will create the image on the VOXL, this <image_name> parameter can be different from the previous one and will be used for the next steps.
 
 ## 3. Set the image to run on start-up
 
@@ -69,12 +69,28 @@ Now that the VOXL has the image to run, to set it to run on start-up is necessar
 
 1. open the file executed by the *docker-autorun* service with:
 
-        vi /etc/ (TODO)
+        vi /etc/modalai/docker-autorun-script.sh 
 
-2. copy these line into the file
+2. copy these lines into the file
 
-        TODO
+        #!/bin/bash
+        ## /etc/modalai/docker-autorun-script.sh
+        
+        # This script is called by docker-autorun.service on boot (if enabled)
+        # Feel free to modify this file as you see fit to do whatever you want
+        # this is just a starting point
+        # Make sure these are run in non-interactive mode! e.g. use -n option with
+        # voxl-docker or dont use -it with docker run
+        
+        ## Hello World Example
+        docker stop <container_name>
+        docker rm <container_name>
+        sleep 10
+        
+        docker run --rm --privileged --net=host --name <container_name> -v /home/root:/root/yoctohome/:rw -w /root/ <image_name> /entrypoint.sh
 
-    then save and exit
+    If you want to change the image to run on start-up you have to change the <image_name> parameter.
 
-### Now the desired image will automatically run at the start-up of the board, the last step is to download the *command publisher* node, the guide to do it is [here]().
+    Save and exit (*esc -> :wq*)
+
+### Now the desired image will automatically run at the start-up of the board, the last step is to download the *command publisher* node, the guide to do it is [here](https://github.com/GiacomoCaciagli/Software_Design_For_UAV_Applications_in_GNSS-DENIED_Environments/blob/main/ground_station/README.md).
