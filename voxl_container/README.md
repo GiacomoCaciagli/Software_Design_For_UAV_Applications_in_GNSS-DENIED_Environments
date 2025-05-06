@@ -12,7 +12,7 @@ To build the image go, from terminal, into one of the two folders in this folder
 
 This would take a while, even two hours in worst case. When the image is built, launch it with:
 
-    form linux/arm64 --rm --net=host --ipc=host --user devuser --privileged -it <image_name> /entrypoint.sh bash
+    docker run --platform linux/arm64 --rm --net=host --ipc=host --user devuser --privileged -it <image_name> /entrypoint.sh bash
 
 Now, in another terminal, export the container with:
 
